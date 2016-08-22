@@ -1,0 +1,8 @@
+Applikationen testar Typescript
+===
+Satart
+c:\carlos\projects\ams\lab\typescript> node server.js
+Navigate to
+localhost:3000
+
+Typescript files are on /js
