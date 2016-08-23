@@ -1,8 +1,14 @@
-Applikationen testar Typescript
+Application for testing Typescript
+based on book Learning TypeScript
+By: Remo H. Janse
 ===
-Satart
-c:\carlos\projects\ams\lab\typescript> node server.js
-Navigate to
-localhost:3000
-
+Application use node js
 Typescript files are on /js
+===
+START BY:
+>git clone https://github.com/cmcr/lab-typescript.git
+/lab-typescript> npm install
+/lab-typescript> node server.js
+- navigate to http://localhost:3000
+- F12 to see the console output
+===
