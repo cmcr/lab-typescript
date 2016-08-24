@@ -1,20 +1,108 @@
 //Chapter 1. Introducing TypeScript
 console.log("Chapter 1. Introducing TypeScript");
-//Type aliases
-console.log("Type aliases");
-var x: number = 1;
+//1.1 The TypeScript architecture
+//1.2 TypeScript language features
+//1.3 Types
+//1.4 Variables, basic types, and operators
+console.log("1.4 Variables, basic types, and operators")
+//Boolean
+var isDone: boolean = false;
+//Number
+var height: number = 8;
+//String
+var name: string = "bob";
+name = 'smith';
+//Array
+var list: number[] = [1, 2, 3];
+var list: Array<number> = [1, 2, 3];
+//Enum
+enum Color { Red, Green, Blue };
+var c: Color = Color.Green;
+//Any
+var notSure: any = 4;
+notSure = "maybe a string instead";
+notSure = false; // okay, definitely a boolean
+var listAny: any[] = [1, true, "free"];
+listAny[1] = 100;
+//void
+function warnUser(): void {
+    alert("This is my warning message");
+}
+
+//1.5 Var, let, and const
+console.log("1.5 Var, let, and const")
+
+function varTest() {
+    var x = 1;
+    if (true) {
+        var x = 2;  // same variable!
+        console.log(x);  // 2
+    }
+    console.log(x);  // 2
+}
+
+function letTest() {
+    let x = 1;
+    if (true) {
+        let x = 2;  // different variable
+        console.log(x);  // 2
+    }
+    console.log(x);  // 1
+}
+
+function constTest() {
+    let x = "CONSTANTE";
+    if (true) {
+        const x = "CONSTANTE 2";  // different variable
+        console.log(x);  // CONSTANTE 2
+    }
+    console.log(x);  // CONSTANTE
+}
+varTest(); letTest(); constTest();
+//1.6 Union types
+console.log("1.6 Union types")
+var path: string[]|string;
+path = '/temp/log.xml';
+path = ['/temp/log.xml', '/temp/errors.xml'];
+//path = 1; // Error
+
+//1.7 Type guards
+console.log("1.7 Type guards")
+var x: any = { /* ... */ };
+if (typeof x === 'string') {
+    //console.log(x.splice(3, 1)); // Error, 'splice' does not exist on 'string'
+}
+// x is still any
+//x.foo(); // OK
+
+//1.8 Type aliases
+console.log("1.8 Type aliases");
+
 type PrimitiveArray = Array<string|number|boolean>;
 type MyNumber = number;
 //type NgScope = ng.IScope;
 type Callback = () => void;
+type signo = number;
+var sq = 15;
+console.log(sq + " typeof signo");
 
-function test(): number {
-    return 648800;
+//1.9 Ambient declarations
+console.log("1.9 Ambient declarations")
+
+interface ICustomConsole {
+    log(arg: string): void;
 }
-console.log(test());
+declare var customConsole: ICustomConsole;
+//customConsole.log("A log entry!"); // ok but not
 
-//Functions
-console.log("Functions")
+//1.10 Arithmetic operators
+//1.11 Comparison operators
+//1.12 Logical operators
+//1.13 Bitwise operators
+//1.14 Assignment operators
+//1.15 Flow control statements
+//1.16 Functions
+console.log("1.16 Functions")
 
 function greet_uno(name?: string): string {
     if (name) {
